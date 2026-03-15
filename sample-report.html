@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContractGhost Sample Report — What a Real Review Looks Like</title>
+  <meta name="description" content="See a polished sample ContractGhost output report: ranked risks, plain-English explanations, safer rewrite language, and a negotiation checklist for freelancers." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121934;
+      --panel-2: #18224a;
+      --text: #eef2ff;
+      --muted: #a8b0d3;
+      --line: #2a3566;
+      --accent: #7c9cff;
+      --accent-2: #9bffcf;
+      --danger: #ff8f8f;
+      --warn: #ffd27a;
+      --ok: #9bffcf;
+      --max: 1040px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #121934 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .hero { padding: 64px 0 28px; }
+    .badge {
+      display: inline-block; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line);
+      color: var(--accent-2); background: rgba(155,255,207,0.08); margin-bottom: 18px; font-size: 14px;
+    }
+    h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.04; margin: 0 0 14px; }
+    h2 { font-size: 28px; margin: 0 0 14px; }
+    h3 { font-size: 20px; margin: 0 0 10px; }
+    p, li { color: var(--muted); }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+    .btn {
+      text-decoration: none; border-radius: 12px; padding: 14px 18px; font-weight: 700;
+      display: inline-block; border: 1px solid var(--line);
+    }
+    .btn-primary { background: var(--accent); color: #08112d; border-color: transparent; }
+    .btn-secondary { background: rgba(255,255,255,0.03); color: var(--text); }
+    .section { padding: 16px 0 28px; }
+    .card {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      margin: 18px 0;
+    }
+    .grid { display: grid; gap: 18px; }
+    .three { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+    .two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .summary {
+      background: linear-gradient(135deg, rgba(124,156,255,0.12), rgba(155,255,207,0.06));
+      border-color: rgba(124,156,255,0.35);
+    }
+    .score {
+      font-size: 48px; font-weight: 800; line-height: 1; margin: 10px 0 4px;
+    }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .pill {
+      padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03); color: var(--muted); font-size: 14px;
+    }
+    .risk-card.high { border-left: 4px solid var(--danger); }
+    .risk-card.medium { border-left: 4px solid var(--warn); }
+    .risk-card.low { border-left: 4px solid var(--ok); }
+    .label {
+      display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.04em;
+      padding: 5px 8px; border-radius: 999px; margin-bottom: 12px;
+    }
+    .label.high { color: #2a0000; background: var(--danger); }
+    .label.medium { color: #332100; background: var(--warn); }
+    .label.low { color: #042415; background: var(--ok); }
+    blockquote {
+      margin: 14px 0; padding: 14px 16px; border-left: 3px solid var(--line);
+      background: rgba(255,255,255,0.03); border-radius: 0 12px 12px 0; color: var(--text);
+    }
+    .rewrite {
+      background: rgba(155,255,207,0.08); border: 1px solid rgba(155,255,207,0.24);
+      border-radius: 14px; padding: 16px; margin-top: 12px;
+    }
+    .checklist li { margin-bottom: 8px; }
+    .footer-note { font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Sample output report</div>
+      <h1>This is what a ContractGhost review should feel like.</h1>
+      <p>
+        Not vague AI fluff. A ranked risk report, plain-English explanations, safer rewrite language,
+        and a negotiation checklist you can actually use before signing.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="./demo.html">Try the live demo</a>
+        <a class="btn btn-secondary" href="./index.html">Back to homepage</a>
+        <a class="btn btn-secondary" href="./faq.html">Read FAQ</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card summary">
+        <h2>Sample report: Freelance website redesign agreement</h2>
+        <div class="grid three" style="margin-top: 16px;">
+          <div>
+            <p style="margin:0;">Overall risk</p>
+            <div class="score" style="color: var(--danger);">Medium-High</div>
+            <p style="margin:0;">4 material issues flagged before signature</p>
+          </div>
+          <div>
+            <p style="margin:0;">Biggest risk</p>
+            <div class="score" style="font-size: 30px; color: var(--warn);">IP before payment</div>
+            <p style="margin:0;">Client gets ownership too early</p>
+          </div>
+          <div>
+            <p style="margin:0;">Recommended action</p>
+            <div class="score" style="font-size: 30px; color: var(--accent-2);">Negotiate</div>
+            <p style="margin:0;">Do not sign as-is</p>
+          </div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Freelancer-focused review</span>
+          <span class="pill">Plain English explanations</span>
+          <span class="pill">Suggested rewrite text</span>
+          <span class="pill">Pre-sign decision support</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid two">
+        <div class="card">
+          <h2>Executive summary</h2>
+          <p>
+            This agreement is close to usable, but it currently exposes the freelancer to unpaid extra work,
+            ownership transfer before full payment, weak cancellation protection, and a long payment delay.
+            None of these are unusual. They are exactly the kind of clauses that quietly destroy project margins.
+          </p>
+          <p>
+            The contract should be renegotiated before signature. The highest-priority fixes are:
+          </p>
+          <ul>
+            <li>Cap revisions and define out-of-scope work</li>
+            <li>Move IP transfer to after full payment clears</li>
+            <li>Add a kill fee / work-paid-to-date termination rule</li>
+            <li>Shorten payment window and add consequences for lateness</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Fast decision</h2>
+          <ul class="checklist">
+            <li><strong>Safe to sign now?</strong> No</li>
+            <li><strong>Needs lawyer immediately?</strong> Probably not, unless deal value is high</li>
+            <li><strong>Can freelancer negotiate this directly?</strong> Yes</li>
+            <li><strong>Main leverage point:</strong> tie ownership and continued work to payment</li>
+            <li><strong>Best next step:</strong> send back a short redline email with 4 edits</li>
+          </ul>
+          <p class="footer-note">
+            This is the kind of "what do I do next?" output the product should provide — not just issue spotting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card risk-card high">
+        <span class="label high">HIGH RISK</span>
+        <h3>1) IP transfers before the client has fully paid</h3>
+        <blockquote>
+          “All work product shall become the sole property of Client upon creation.”
+        </blockquote>
+        <p>
+          This means the client owns the work the moment it exists — even if they delay payment,
+          dispute the invoice, or disappear entirely. For a freelancer, that is upside-down risk.
+        </p>
+        <p><strong>Why it matters:</strong> if the relationship goes bad, you may lose both the money and the asset.</p>
+        <div class="rewrite">
+          <strong>Suggested rewrite</strong>
+          <p style="margin-bottom:0; color: var(--text);">
+            “All intellectual property in the deliverables remains with Contractor until Client has paid all fees in full.
+            Upon full payment, Contractor assigns ownership in the final approved deliverables to Client, excluding pre-existing tools,
+            templates, know-how, and reusable components.”
+          </p>
+        </div>
+      </div>
+
+      <div class="card risk-card high">
+        <span class="label high">HIGH RISK</span>
+        <h3>2) Unlimited revisions with no scope boundary</h3>
+        <blockquote>
+          “Contractor will make revisions as needed until Client is satisfied.”
+        </blockquote>
+        <p>
+          “Satisfied” is not measurable. This turns a fixed-price project into an open-ended commitment.
+        </p>
+        <p><strong>Why it matters:</strong> one fuzzy sentence can erase all margin in the job.</p>
+        <div class="rewrite">
+          <strong>Suggested rewrite</strong>
+          <p style="margin-bottom:0; color: var(--text);">
+            “The fee includes up to two rounds of revisions following each major deliverable.
+            Additional revisions or requests outside the agreed scope will be billed at $X/hour or quoted separately in writing.”
+          </p>
+        </div>
+      </div>
+
+      <div class="card risk-card medium">
+        <span class="label medium">MEDIUM RISK</span>
+        <h3>3) Client can terminate anytime, but there is no kill fee</h3>
+        <blockquote>
+          “Client may terminate this agreement at any time upon written notice.”
+        </blockquote>
+        <p>
+          This is survivable only if the contract also says you get paid for work completed and any reserved time.
+          Right now, it does not.
+        </p>
+        <p><strong>Why it matters:</strong> you can block out time, turn away other work, then get cut loose with nothing.</p>
+        <div class="rewrite">
+          <strong>Suggested rewrite</strong>
+          <p style="margin-bottom:0; color: var(--text);">
+            “Client may terminate on written notice, provided Client pays for all work completed to date,
+            all approved expenses, and a kill fee equal to 20% of the remaining project fee to cover reserved capacity.”
+          </p>
+        </div>
+      </div>
+
+      <div class="card risk-card medium">
+        <span class="label medium">MEDIUM RISK</span>
+        <h3>4) Net-45 payment is slower than it needs to be</h3>
+        <blockquote>
+          “Invoices are payable within 45 days.”
+        </blockquote>
+        <p>
+          Net-45 is the client using freelancer cash flow as a buffer. It may be tolerable for enterprise work,
+          but it is not freelancer-friendly by default.
+        </p>
+        <p><strong>Why it matters:</strong> slow payment creates financing pressure even when the project goes well.</p>
+        <div class="rewrite">
+          <strong>Suggested rewrite</strong>
+          <p style="margin-bottom:0; color: var(--text);">
+            “Invoices are payable within 14 days. Late invoices incur a 1.5% monthly late fee,
+            and Contractor may pause work on accounts more than 7 days overdue.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid two">
+        <div class="card">
+          <h2>Negotiation email draft</h2>
+          <p>
+            Here’s the kind of practical output that turns analysis into action:
+          </p>
+          <blockquote>
+            Hi [Client], thanks — I reviewed the agreement and I’m happy to move forward once we tighten a few terms.
+            I’d like to limit revisions to two rounds per milestone, shift IP transfer to after final payment,
+            add payment for work completed if the project is terminated early, and shorten invoice terms to 14 days.
+            I’ve included suggested wording below if helpful.
+          </blockquote>
+        </div>
+        <div class="card">
+          <h2>What this sample proves</h2>
+          <ul>
+            <li>The value is not “AI read the contract.”</li>
+            <li>The value is “I now know what matters, why it matters, and what to send back.”</li>
+            <li>That makes the product easier to picture than a generic homepage promise.</li>
+            <li>It also gives future traffic a concrete artifact to share in posts and replies.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>Where to go next</h2>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="./demo.html">Open demo</a>
+          <a class="btn btn-secondary" href="./contractghost-vs-chatgpt-for-freelance-contracts.html">Compare with ChatGPT</a>
+          <a class="btn btn-secondary" href="./privacy.html">Review privacy expectations</a>
+          <a class="btn btn-secondary" href="mailto:spazo@high-agency.com.au?subject=ContractGhost%20sample%20report%20feedback">Send feedback</a>
+        </div>
+        <p class="footer-note" style="margin-top:16px;">
+          Important: ContractGhost is not a law firm and does not provide legal advice. This sample is for product validation and demonstration.
+        </p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
