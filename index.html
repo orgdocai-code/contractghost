@@ -100,7 +100,7 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
         <a class="btn btn-secondary" href="demo.html" style="background: rgba(124,156,255,0.12); border-color: rgba(124,156,255,0.4); color: var(--accent);">🔍 See a live demo</a>
-        <a class="btn btn-secondary" href="#how">How it works</a>
+        <a class="btn btn-secondary" href="how-it-works.html">How it works</a>
       </div>
       <p class="tiny">Built for freelancers, consultants, and solo studios who need contract clarity without a $300/hour lawyer bill.</p>
       <div class="pill-list">
@@ -291,7 +291,7 @@
       <div class="card">
         <h2>Join the waitlist</h2>
         <p class="muted">Tell us what kind of contracts you deal with and we'll prioritize the riskiest clauses first.</p>
-        <form id="waitlist-form" class="form" action="mailto:spazo@high-agency.com.au?subject=ContractGhost%20Waitlist&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20" method="POST" enctype="text/plain">
+        <form id="waitlist-form" class="form" action="https://formspree.io/f/xgonllpv" method="POST">
           <input type="hidden" name="product" value="ContractGhost" />
           <input type="hidden" name="source" value="landing-page" />
           <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
@@ -300,10 +300,6 @@
           <button class="btn btn-primary" type="submit">Join Waitlist</button>
         </form>
         <div id="success" class="success" role="status" aria-live="polite"></div>
-        <div class="helper-links">
-          <a class="btn btn-secondary" id="download-leads" href="#">Download captured leads (.json)</a>
-          <a class="btn btn-secondary" id="email-fallback" href="mailto:spazo@high-agency.com.au?subject=ContractGhost%20beta&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20">Email instead</a>
-        </div>
         <p class="tiny">Join our waitlist to get early access. We'll email you when we're live.</p>
       </div>
     </div>
@@ -350,6 +346,7 @@
       }
 
       function updateDownloadLink(leads) {
+        if (!downloadLink) return;
         const blob = new Blob([JSON.stringify(leads, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         downloadLink.href = url;

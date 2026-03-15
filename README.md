@@ -5,7 +5,8 @@
 Stop signing contracts you don't fully understand. ContractGhost reads your freelance contract before you sign it — flagging risky clauses in plain English, explaining real-world consequences, and suggesting safer rewrite language you can actually send back to the client.
 
 🔗 **Live site:** [contractghost.com](https://orgdocai-code.github.io/contractghost/)  
-🔍 **Interactive demo:** [See a live analysis](https://orgdocai-code.github.io/contractghost/demo.html)
+🔍 **Interactive demo:** [See a live analysis](https://orgdocai-code.github.io/contractghost/demo.html)  
+📘 **How it works:** [Freelancer contract review explainer](https://orgdocai-code.github.io/contractghost/how-it-works.html)
 
 ---
 

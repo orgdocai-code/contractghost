@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How ContractGhost Works — AI Contract Review for Freelancers</title>
+  <meta name="description" content="See how ContractGhost reviews freelance contracts, flags risky clauses, explains legalese in plain English, and suggests safer rewrite language before you sign." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121934;
+      --text: #eef2ff;
+      --muted: #a8b0d3;
+      --line: #2a3566;
+      --accent: #7c9cff;
+      --accent-2: #9bffcf;
+      --max: 920px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #121934 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent-2); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .hero { padding: 64px 0 28px; }
+    .badge {
+      display: inline-block; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line);
+      color: var(--accent-2); background: rgba(155,255,207,0.08); margin-bottom: 18px; font-size: 14px;
+    }
+    h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; margin: 0 0 14px; }
+    h2 { font-size: 28px; margin-top: 34px; }
+    h3 { font-size: 20px; margin-top: 24px; }
+    p, li { color: var(--muted); }
+    .card {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      margin: 18px 0;
+    }
+    .btn {
+      display: inline-block; margin-right: 12px; margin-top: 8px; text-decoration: none;
+      border-radius: 12px; padding: 14px 18px; font-weight: 700; border: 1px solid var(--line);
+    }
+    .btn-primary { background: var(--accent); color: #08112d; border-color: transparent; }
+    .btn-secondary { background: rgba(255,255,255,0.03); color: var(--text); }
+    .small { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Freelance contract review, explained plainly</div>
+      <h1>How ContractGhost works before you sign a freelance contract</h1>
+      <p>
+        ContractGhost is built for freelancers who need a fast pre-sign contract check without paying a lawyer for every small job.
+        It reads the agreement, pulls out the clauses most likely to hurt you, explains what they mean in normal language,
+        and gives you safer wording to negotiate with.
+      </p>
+      <a class="btn btn-primary" href="./demo.html">See the live demo</a>
+      <a class="btn btn-secondary" href="./index.html#waitlist">Join the waitlist</a>
+    </section>
+
+    <section class="card">
+      <h2>What problem this solves</h2>
+      <p>
+        Most freelancers do not get burned because they ignored obvious danger. They get burned because the contract language looked harmless,
+        seemed standard, or felt too annoying to unpack before the project started. Scope creep, IP transfer before payment, weak termination rights,
+        and vague approval language are where small gigs turn into expensive mistakes.
+      </p>
+      <p>
+        ContractGhost is meant to catch those issues early, while there is still time to negotiate.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>The workflow</h2>
+      <ol>
+        <li><strong>Paste or upload the contract.</strong> This can be a client agreement, proposal, statement of work, or MSA.</li>
+        <li><strong>Get a risk scan.</strong> ContractGhost looks for clause patterns that commonly hurt freelancers.</li>
+        <li><strong>Read the plain-English explanation.</strong> Instead of legal jargon, it tells you what can actually happen.</li>
+        <li><strong>Use the safer rewrite.</strong> You get negotiation-ready language to send back to the client.</li>
+        <li><strong>Decide what to sign, question, or push back on.</strong></li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>What ContractGhost checks for</h2>
+      <ul>
+        <li>Unlimited revisions and vague scope language</li>
+        <li>Ownership transfer before full payment clears</li>
+        <li>Late payment risk and weak milestone wording</li>
+        <li>One-sided termination or refund terms</li>
+        <li>Broad indemnity and liability exposure</li>
+        <li>Auto-renewal traps and notice window gotchas</li>
+        <li>Non-compete, exclusivity, and confidentiality asymmetry</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Why not just use ChatGPT?</h2>
+      <p>
+        You can absolutely paste a contract into a general-purpose AI tool. The problem is that general tools do not start from a freelancer-risk lens.
+        They often summarise everything evenly instead of ranking the clauses most likely to cause unpaid work, ownership loss, or client leverage.
+      </p>
+      <p>
+        ContractGhost is opinionated. It is designed to prioritise freelancer pain, not just restate the contract back to you.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>What the output looks like</h2>
+      <p>
+        A finished review gives you an overall risk level, the top action to take before signing, and a short list of the clauses that matter most.
+        Each flagged clause includes:
+      </p>
+      <ul>
+        <li>The risky excerpt</li>
+        <li>Why it is dangerous in practice</li>
+        <li>A safer rewrite or negotiation angle</li>
+        <li>A severity level so you know what to fix first</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>What it is not</h2>
+      <p>
+        ContractGhost is not a law firm and does not replace a qualified lawyer. It is a fast pre-sign screening layer to help freelancers spot obvious risk,
+        negotiate better, and know when a contract deserves a deeper legal review.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Best use cases</h2>
+      <ul>
+        <li>Freelance designers reviewing client project agreements</li>
+        <li>Developers checking SOWs and retainers for scope creep</li>
+        <li>Consultants negotiating ownership and payment language</li>
+        <li>Solo studios sanity-checking contracts before sending them to a lawyer</li>
+      </ul>
+      <p class="small">
+        Related guides: <a href="./scope-creep-contract-checklist.html">scope creep checklist</a>,
+        <a href="./late-payment-contract-red-flags.html">late payment contract red flags</a>,
+        <a href="./ip-transfer-before-payment.html">IP transfer before payment</a>.
+      </p>
+    </section>
+  </div>
+</body>
+</html>
