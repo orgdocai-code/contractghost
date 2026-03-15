@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+  command = "cd netlify/functions && npm install"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/analyze"
+  to = "/.netlify/functions/analyze"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"
