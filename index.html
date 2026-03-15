@@ -250,6 +250,24 @@
     </div>
   </section>
 
+  <!-- Direct validation ask — no form dependency -->
+  <section class="section" id="story">
+    <div class="wrap">
+      <div class="card" style="border-color: rgba(124,156,255,0.35); background: rgba(124,156,255,0.05);">
+        <h2>Have a contract horror story?</h2>
+        <p class="muted">
+          Freelancers are building this product. If a contract has ever burned you — scope creep, unpaid work,
+          IP grabbed before you were paid, a one-sided termination — tell us what happened.
+          We read every reply and we'll send back what ContractGhost would have flagged in your contract.
+        </p>
+        <a class="btn btn-primary" style="margin-top: 8px;" href="mailto:spazo@high-agency.com.au?subject=My%20contract%20horror%20story&body=What%20happened%3A%0A%0AWhich%20clause%20burned%20you%3A%0A%0AWhat%20was%20your%20workaround%3A%0A%0A">
+          Share your story →
+        </a>
+        <p class="tiny" style="margin-top: 12px;">Takes 2 minutes. We'll reply with a real ContractGhost sample for your exact situation.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="survey">
     <div class="wrap">
       <div class="card">
@@ -273,7 +291,7 @@
       <div class="card">
         <h2>Join the waitlist</h2>
         <p class="muted">Tell us what kind of contracts you deal with and we'll prioritize the riskiest clauses first.</p>
-        <form id="waitlist-form" class="form" action="mailto:contractghostbeta@proton.me?subject=ContractGhost%20Waitlist&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20" method="POST" enctype="text/plain">
+        <form id="waitlist-form" class="form" action="mailto:spazo@high-agency.com.au?subject=ContractGhost%20Waitlist&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20" method="POST" enctype="text/plain">
           <input type="hidden" name="product" value="ContractGhost" />
           <input type="hidden" name="source" value="landing-page" />
           <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
@@ -284,7 +302,7 @@
         <div id="success" class="success" role="status" aria-live="polite"></div>
         <div class="helper-links">
           <a class="btn btn-secondary" id="download-leads" href="#">Download captured leads (.json)</a>
-          <a class="btn btn-secondary" id="email-fallback" href="mailto:contractghostbeta@proton.me?subject=ContractGhost%20beta&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20">Email instead</a>
+          <a class="btn btn-secondary" id="email-fallback" href="mailto:spazo@high-agency.com.au?subject=ContractGhost%20beta&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20">Email instead</a>
         </div>
         <p class="tiny">Join our waitlist to get early access. We'll email you when we're live.</p>
       </div>
