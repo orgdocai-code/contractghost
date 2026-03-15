@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContractGhost Demo — See a Real Contract Risk Analysis</title>
+  <meta name="description" content="See exactly what ContractGhost does: upload a freelance contract and get risky clauses flagged in plain English. Live demo.">
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card: #1a1a1a;
+      --border: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #888;
+      --red: #ff4444;
+      --orange: #ff8c00;
+      --green: #22c55e;
+      --accent: #6366f1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+
+    .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    .logo { font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .demo-badge { background: var(--accent); color: white; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .hero { max-width: 860px; margin: 0 auto; padding: 48px 24px 32px; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+    .hero p { color: var(--muted); font-size: 17px; max-width: 600px; }
+
+    .demo-container { max-width: 860px; margin: 0 auto; padding: 0 24px 64px; }
+
+    .contract-input { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .contract-input label { display: block; font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .contract-text { background: #111; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: 'Courier New', monospace; font-size: 13px; color: #ccc; line-height: 1.7; white-space: pre-wrap; max-height: 260px; overflow-y: auto; }
+
+    .analyze-btn { display: block; width: 100%; background: var(--accent); color: white; border: none; border-radius: 8px; padding: 14px 24px; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 32px; transition: opacity 0.2s; }
+    .analyze-btn:hover { opacity: 0.9; }
+
+    .results { display: none; }
+    .results.visible { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .risk-summary { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+    .risk-header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .risk-badge { font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .risk-badge.high { background: rgba(255,68,68,0.15); color: var(--red); border: 1px solid rgba(255,68,68,0.3); }
+    .risk-badge.medium { background: rgba(255,140,0,0.15); color: var(--orange); border: 1px solid rgba(255,140,0,0.3); }
+    .risk-badge.low { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+    .risk-title { font-size: 20px; font-weight: 700; }
+    .risk-summary-text { color: var(--muted); font-size: 15px; }
+
+    .clause-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .clause-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+    .clause-risk-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .clause-risk-dot.high { background: var(--red); box-shadow: 0 0 8px rgba(255,68,68,0.5); }
+    .clause-risk-dot.medium { background: var(--orange); box-shadow: 0 0 8px rgba(255,140,0,0.5); }
+    .clause-risk-dot.low { background: var(--green); }
+    .clause-title-group { flex: 1; }
+    .clause-title { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .clause-risk-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .clause-risk-label.high { color: var(--red); }
+    .clause-risk-label.medium { color: var(--orange); }
+    .clause-risk-label.low { color: var(--green); }
+
+    .section-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .quote-block { background: #111; border-left: 3px solid var(--border); border-radius: 0 6px 6px 0; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 12px; color: #aaa; margin-bottom: 16px; }
+    .plain-english { color: var(--text); font-size: 15px; margin-bottom: 12px; }
+    .consequence { color: var(--red); font-size: 14px; margin-bottom: 16px; padding: 10px 14px; background: rgba(255,68,68,0.05); border-radius: 6px; border: 1px solid rgba(255,68,68,0.15); }
+    .consequence.medium { color: var(--orange); background: rgba(255,140,0,0.05); border-color: rgba(255,140,0,0.15); }
+    .rewrite-block { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.2); border-radius: 8px; padding: 14px; }
+    .rewrite-label { font-size: 11px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .rewrite-text { font-size: 14px; color: #ccc; font-style: italic; }
+    .copy-btn { float: right; background: transparent; border: 1px solid rgba(34,197,94,0.3); color: var(--green); font-size: 11px; padding: 3px 8px; border-radius: 4px; cursor: pointer; margin-top: -2px; }
+    .copy-btn:hover { background: rgba(34,197,94,0.1); }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+    .cta-block { background: var(--card); border: 1px solid var(--accent); border-radius: 12px; padding: 32px; margin-top: 32px; text-align: center; }
+    .cta-block h2 { font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+    .cta-block p { color: var(--muted); margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: var(--accent); color: white; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; margin-right: 12px; }
+    .cta-secondary { display: inline-block; background: transparent; color: var(--text); text-decoration: none; padding: 14px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1px solid var(--border); }
+    .disclaimer { font-size: 12px; color: var(--muted); margin-top: 16px; }
+
+    .loading { display: none; text-align: center; padding: 48px; }
+    .loading.visible { display: block; }
+    .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { color: var(--muted); font-size: 15px; }
+    .loading-steps { margin-top: 12px; font-size: 13px; }
+    .loading-step { color: var(--muted); margin: 4px 0; transition: color 0.3s; }
+    .loading-step.active { color: var(--accent); }
+    .loading-step.done { color: var(--green); }
+
+    .nav-back { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: auto; }
+    .nav-back:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="logo">Contract<span>Ghost</span></a>
+  <span class="demo-badge">Live Demo</span>
+  <a href="index.html" class="nav-back">← Back to homepage</a>
+</div>
+
+<div class="hero">
+  <h1>See ContractGhost in action</h1>
+  <p>This is a real contract analysis. The clause below is a composite of the most dangerous clauses we see in freelance contracts.</p>
+</div>
+
+<div class="demo-container">
+  <div class="contract-input">
+    <label>Sample Contract — Web Design Agreement (click Analyze to see risks)</label>
+    <div class="contract-text">SERVICES AND DELIVERABLES
+
+1. Contractor agrees to provide web design services as requested by Client from time to time.
+
+2. Client may request unlimited revisions to any deliverable until Client is satisfied in Client's sole discretion.
+
+3. All work product, including preliminary designs, concepts, and drafts, shall be considered work made for hire and shall be the exclusive property of Client upon creation, regardless of whether payment has been received.
+
+4. Contractor warrants that all deliverables will be free from defects for a period of 12 months following delivery, and Contractor shall be solely responsible for remedying any defects at no additional cost to Client.
+
+5. In the event that Client terminates this Agreement for any reason, Contractor shall immediately deliver all work product to Client and forfeit any unpaid compensation.
+
+6. Contractor agrees to indemnify, defend, and hold harmless Client from any and all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising from Contractor's performance of services.
+
+7. This Agreement shall automatically renew for successive 12-month terms unless terminated by Contractor with 90 days prior written notice.</div>
+  </div>
+
+  <button class="analyze-btn" onclick="runAnalysis()">🔍 Analyze This Contract</button>
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">ContractGhost is reading your contract...</div>
+    <div class="loading-steps">
+      <div class="loading-step" id="step1">📄 Extracting clauses...</div>
+      <div class="loading-step" id="step2">⚖️ Scoring risk levels...</div>
+      <div class="loading-step" id="step3">✍️ Generating plain-English explanations...</div>
+      <div class="loading-step" id="step4">🔄 Writing safer rewrites...</div>
+    </div>
+  </div>
+
+  <div class="results" id="results">
+
+    <div class="risk-summary">
+      <div class="risk-header">
+        <span class="risk-badge high">High Risk</span>
+        <span class="risk-title">5 dangerous clauses found</span>
+      </div>
+      <p class="risk-summary-text">This contract has serious issues. You'd be doing unlimited free work, giving away IP before getting paid, carrying 12-month warranty liability, losing money if the client fires you, and locked into auto-renewal. Do not sign as-is.</p>
+    </div>
+
+    <!-- Clause 1: Unlimited Revisions -->
+    <div class="clause-card">
+      <div class="clause-header">
+        <div class="clause-risk-dot high"></div>
+        <div class="clause-title-group">
+          <div class="clause-title">🔴 Unlimited Revisions Trap</div>
+          <div class="clause-risk-label high">HIGH RISK</div>
+        </div>
+      </div>
+      <div class="section-label">Exact Quote</div>
+      <div class="quote-block">"Client may request unlimited revisions to any deliverable until Client is satisfied in Client's sole discretion."</div>
+      <div class="section-label">What This Actually Means</div>
+      <p class="plain-english">The client can ask for changes forever, for any reason, and you have no legal right to say no or charge extra. "Sole discretion" means they're the only judge of when you're done — you have zero protection against this turning into 6 months of free work.</p>
+      <div class="consequence">⚠️ Real consequence: We've seen freelancers trapped in 4-month revision spirals on a project that was meant to take 3 weeks. The client keeps "not being satisfied." The freelancer keeps working for free.</div>
+      <hr class="divider">
+      <div class="rewrite-block">
+        <div class="rewrite-label">✅ Safer Rewrite (copy and propose this)</div>
+        <button class="copy-btn" onclick="copyText('Client may request up to 3 rounds of revisions per deliverable within 14 days of delivery. Additional revisions are billed at $[hourly rate]/hour.')">Copy</button>
+        <p class="rewrite-text">"Client may request up to 3 rounds of revisions per deliverable within 14 days of delivery. Additional revisions are billed at $[hourly rate]/hour."</p>
+      </div>
+    </div>
+
+    <!-- Clause 2: IP Before Payment -->
+    <div class="clause-card">
+      <div class="clause-header">
+        <div class="clause-risk-dot high"></div>
+        <div class="clause-title-group">
+          <div class="clause-title">🔴 IP Transfer Before Payment</div>
+          <div class="clause-risk-label high">HIGH RISK</div>
+        </div>
+      </div>
+      <div class="section-label">Exact Quote</div>
+      <div class="quote-block">"All work product... shall be the exclusive property of Client upon creation, regardless of whether payment has been received."</div>
+      <div class="section-label">What This Actually Means</div>
+      <p class="plain-english">The moment you create anything — a sketch, a draft, a concept — it legally belongs to the client. Even if they never pay you. You've handed over your leverage before receiving a cent.</p>
+      <div class="consequence">⚠️ Real consequence: Client accepts the work, decides not to pay, and they're legally in the right. You have no IP to withhold as leverage. Your only remedy is a lawsuit — which costs more than the invoice.</div>
+      <hr class="divider">
+      <div class="rewrite-block">
+        <div class="rewrite-label">✅ Safer Rewrite (copy and propose this)</div>
+        <button class="copy-btn" onclick="copyText('All work product shall become the exclusive property of Client upon receipt of full payment. Contractor retains ownership and all rights until payment is received in full.')">Copy</button>
+        <p class="rewrite-text">"All work product shall become the exclusive property of Client upon receipt of full payment. Contractor retains ownership and all rights until payment is received in full."</p>
+      </div>
+    </div>
+
+    <!-- Clause 3: Kill Fee / Forfeiture -->
+    <div class="clause-card">
+      <div class="clause-header">
+        <div class="clause-risk-dot high"></div>
+        <div class="clause-title-group">
+          <div class="clause-title">🔴 Work Forfeiture on Termination</div>
+          <div class="clause-risk-label high">HIGH RISK</div>
+        </div>
+      </div>
+      <div class="section-label">Exact Quote</div>
+      <div class="quote-block">"In the event that Client terminates this Agreement for any reason, Contractor shall immediately deliver all work product to Client and forfeit any unpaid compensation."</div>
+      <div class="section-label">What This Actually Means</div>
+      <p class="plain-english">If the client fires you — for literally any reason — you hand over everything and get paid nothing for work already completed. They get the work. You get nothing.</p>
+      <div class="consequence">⚠️ Real consequence: Common abuse pattern — client uses 80% of the work, terminates the contract before final payment, keeps everything under this clause. Happens in web design projects regularly.</div>
+      <hr class="divider">
+      <div class="rewrite-block">
+        <div class="rewrite-label">✅ Safer Rewrite (copy and propose this)</div>
+        <button class="copy-btn" onclick="copyText('If Client terminates this Agreement, Client shall pay Contractor for all work completed through the termination date. Work product transfers to Client only upon receipt of all compensation owed.')">Copy</button>
+        <p class="rewrite-text">"If Client terminates this Agreement, Client shall pay Contractor for all work completed through the termination date. Work product transfers to Client only upon receipt of all compensation owed."</p>
+      </div>
+    </div>
+
+    <!-- Clause 4: 12-Month Warranty -->
+    <div class="clause-card">
+      <div class="clause-header">
+        <div class="clause-risk-dot medium"></div>
+        <div class="clause-title-group">
+          <div class="clause-title">🟠 12-Month Unlimited Warranty</div>
+          <div class="clause-risk-label medium">MEDIUM RISK</div>
+        </div>
+      </div>
+      <div class="section-label">Exact Quote</div>
+      <div class="quote-block">"Contractor warrants that all deliverables will be free from defects for a period of 12 months... Contractor shall be solely responsible for remedying any defects at no additional cost to Client."</div>
+      <div class="section-label">What This Actually Means</div>
+      <p class="plain-english">For a full year after delivery, you're on the hook to fix anything the client considers a "defect" for free. The word "defect" isn't defined — the client could decide a design choice they approved is now a defect.</p>
+      <div class="consequence consequence medium">⚠️ This creates open-ended unpaid obligation. 30 days is industry standard for bug fixes. 12 months is unreasonable unless you're a software vendor selling enterprise licenses.</div>
+      <hr class="divider">
+      <div class="rewrite-block">
+        <div class="rewrite-label">✅ Safer Rewrite (copy and propose this)</div>
+        <button class="copy-btn" onclick="copyText('Contractor warrants deliverables against defects in workmanship for 30 days following delivery. This warranty excludes defects caused by Client modifications, third-party software changes, or design decisions approved by Client.')">Copy</button>
+        <p class="rewrite-text">"Contractor warrants deliverables against defects in workmanship for 30 days following delivery. This warranty excludes defects caused by Client modifications, third-party software changes, or design decisions approved by Client."</p>
+      </div>
+    </div>
+
+    <!-- Clause 5: Auto-Renewal -->
+    <div class="clause-card">
+      <div class="clause-header">
+        <div class="clause-risk-dot medium"></div>
+        <div class="clause-title-group">
+          <div class="clause-title">🟠 Auto-Renewal Trap</div>
+          <div class="clause-risk-label medium">MEDIUM RISK</div>
+        </div>
+      </div>
+      <div class="section-label">Exact Quote</div>
+      <div class="quote-block">"This Agreement shall automatically renew for successive 12-month terms unless terminated by Contractor with 90 days prior written notice."</div>
+      <div class="section-label">What This Actually Means</div>
+      <p class="plain-english">You're automatically locked into another 12 months of this contract — with all its bad clauses — unless you remember to send a formal written notice 90 days before the anniversary date. Miss the window by a day and you're in for another year.</p>
+      <div class="consequence consequence medium">⚠️ The 90-day notice requirement is unusually long for a freelance agreement. 30 days is typical. This is asymmetric — the client can likely exit more easily than you can.</div>
+      <hr class="divider">
+      <div class="rewrite-block">
+        <div class="rewrite-label">✅ Safer Rewrite (copy and propose this)</div>
+        <button class="copy-btn" onclick="copyText('This Agreement expires at the end of the initial term unless both parties agree in writing to renew. Either party may terminate with 30 days written notice.')">Copy</button>
+        <p class="rewrite-text">"This Agreement expires at the end of the initial term unless both parties agree in writing to renew. Either party may terminate with 30 days written notice."</p>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <h2>Ready to check your own contracts?</h2>
+      <p>ContractGhost is in early access. Join the waitlist and be first to try it on real contracts.</p>
+      <a href="mailto:spazo@high-agency.com.au?subject=ContractGhost%20beta%20access&body=Email%3A%20%0AFreelance%20work%3A%20%0AHow%20many%20contracts%20do%20you%20review%20per%20month%3A%20" class="cta-btn">Get Early Access →</a>
+      <a href="index.html" class="cta-secondary">Learn More</a>
+      <p class="disclaimer">Not legal advice. ContractGhost flags risk — it doesn't replace a lawyer for high-stakes agreements.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function runAnalysis() {
+  document.querySelector('.analyze-btn').style.display = 'none';
+  document.getElementById('loading').classList.add('visible');
+
+  const steps = ['step1', 'step2', 'step3', 'step4'];
+  let current = 0;
+
+  const interval = setInterval(() => {
+    if (current > 0) {
+      document.getElementById(steps[current - 1]).classList.remove('active');
+      document.getElementById(steps[current - 1]).classList.add('done');
+      document.getElementById(steps[current - 1]).textContent = '✓ ' + document.getElementById(steps[current - 1]).textContent.replace(/^📄|^⚖️|^✍️|^🔄/, '').trim();
+    }
+    if (current < steps.length) {
+      document.getElementById(steps[current]).classList.add('active');
+      current++;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        document.getElementById('loading').classList.remove('visible');
+        document.getElementById('results').classList.add('visible');
+      }, 600);
+    }
+  }, 800);
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    const original = btn.textContent;
+    btn.textContent = '✓ Copied';
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  });
+}
+</script>
+
+</body>
+</html>
