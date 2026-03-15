@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContractGhost — Don't sign away your work</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121934;
+      --text: #eef2ff;
+      --muted: #a8b0d3;
+      --line: #2a3566;
+      --accent: #7c9cff;
+      --accent-2: #9bffcf;
+      --danger: #ff8f8f;
+      --warn: #ffd27a;
+      --ok: #9bffcf;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #121934 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .hero { padding: 72px 0 48px; }
+    .badge {
+      display: inline-block; padding: 6px 12px; border: 1px solid var(--line);
+      border-radius: 999px; color: var(--accent-2); background: rgba(155,255,207,0.08);
+      font-size: 14px; margin-bottom: 20px;
+    }
+    h1 { font-size: clamp(38px, 7vw, 72px); line-height: 1.02; margin: 0 0 16px; }
+    .sub { font-size: 20px; color: var(--muted); max-width: 760px; margin-bottom: 28px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+    .btn {
+      text-decoration: none; border-radius: 12px; padding: 14px 18px; font-weight: 700;
+      display: inline-block; border: 1px solid var(--line);
+    }
+    .btn-primary { background: var(--accent); color: #08112d; border-color: transparent; }
+    .btn-secondary { background: rgba(255,255,255,0.03); }
+    .tiny { color: var(--muted); font-size: 14px; }
+    .grid { display: grid; gap: 18px; }
+    .three { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+    .section { padding: 22px 0 32px; }
+    h2 { font-size: 30px; margin: 0 0 14px; }
+    h3 { margin: 0 0 10px; font-size: 20px; }
+    ul { padding-left: 20px; }
+    .risk { border-left: 4px solid var(--danger); }
+    .pricing { font-size: 40px; font-weight: 800; margin: 10px 0 2px; }
+    .muted { color: var(--muted); }
+    .footer { padding: 36px 0 60px; color: var(--muted); font-size: 14px; }
+    .form {
+      display: grid; gap: 12px; max-width: 520px;
+    }
+    input, textarea {
+      width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04); color: var(--text); font: inherit;
+    }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .pill {
+      padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted);
+      background: rgba(255,255,255,0.03); font-size: 14px;
+    }
+    .success {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(155,255,207,0.35);
+      background: rgba(155,255,207,0.08);
+      color: var(--ok);
+      display: none;
+    }
+    .helper-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="wrap">
+      <div class="badge">AI contract review for freelancers</div>
+      <h1>Don't sign away your work.</h1>
+      <p class="sub">
+        Upload a client contract and ContractGhost flags dangerous clauses in plain English —
+        before unlimited revisions, IP grabs, kill fees, or auto-renewals bite you.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
+        <a class="btn btn-secondary" href="#how">See how it works</a>
+        <a class="btn btn-secondary" href="#survey">Answer 3 quick questions</a>
+      </div>
+      <p class="tiny">Built for freelancers, consultants, and solo studios who need contract clarity without a $300/hour lawyer bill.</p>
+      <div class="pill-list">
+        <span class="pill">Flags risky clauses</span>
+        <span class="pill">Explains legalese in plain English</span>
+        <span class="pill">Suggests safer rewrite language</span>
+        <span class="pill">Designed for fast pre-sign review</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid three">
+      <div class="card risk">
+        <h3>Unlimited revisions</h3>
+        <p class="muted">Spot vague scope traps before a “small project” turns into endless unpaid work.</p>
+      </div>
+      <div class="card risk">
+        <h3>IP transfer surprises</h3>
+        <p class="muted">See when ownership shifts too early, too broadly, or without full payment.</p>
+      </div>
+      <div class="card risk">
+        <h3>Bad termination terms</h3>
+        <p class="muted">Catch one-sided cancellation, refund, indemnity, and liability clauses fast.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap grid two">
+      <div class="card">
+        <h2>How it works</h2>
+        <ol>
+          <li>Upload a contract, proposal, or statement of work.</li>
+          <li>Get a clause-by-clause risk summary in plain English.</li>
+          <li>See suggested rewrite language you can send back to the client.</li>
+          <li>Decide what to negotiate before you sign.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h2>What you get</h2>
+        <ul>
+          <li>Top 5-10 risks ranked by severity</li>
+          <li>Freelancer-specific explanations, not generic legal fluff</li>
+          <li>Negotiation-ready edits and talking points</li>
+          <li>Fast review for one-off gigs and recurring retainers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid two">
+      <div class="card">
+        <h2>What ContractGhost checks</h2>
+        <ul>
+          <li>Scope creep and unlimited revisions</li>
+          <li>IP transfer before full payment</li>
+          <li>Weak payment or milestone language</li>
+          <li>One-sided termination and refund terms</li>
+          <li>Indemnity, liability, and auto-renewal traps</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How this is different from asking ChatGPT</h2>
+        <ul>
+          <li>Built around freelancer contract traps specifically</li>
+          <li>Ranks the highest-risk clauses first</li>
+          <li>Explains why each issue matters in plain English</li>
+          <li>Gives negotiation-ready wording to push back with</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="card">
+        <h2>Start with your biggest contract risk</h2>
+        <p class="muted">These pain-specific pages turn ContractGhost into a sharper acquisition surface. They can be shared directly in DMs, community replies, or search results instead of sending everyone to one generic homepage.</p>
+        <div class="grid three" style="margin-top:16px;">
+          <div class="card">
+            <h3>Scope creep</h3>
+            <p class="muted">Use this if vague deliverables and endless revisions keep blowing up fixed-fee work.</p>
+            <a class="btn btn-secondary" href="./scope-creep-contract-checklist.html">Open scope checklist</a>
+          </div>
+          <div class="card">
+            <h3>Late payment</h3>
+            <p class="muted">Use this if deposits, milestone terms, and overdue invoice protection are the real problem.</p>
+            <a class="btn btn-secondary" href="./late-payment-contract-red-flags.html">Open payment red flags</a>
+          </div>
+          <div class="card">
+            <h3>IP transfer risk</h3>
+            <p class="muted">Use this if clients want ownership too early or too broadly before you've been paid.</p>
+            <a class="btn btn-secondary" href="./ip-transfer-before-payment.html">Open IP risk guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid two">
+      <div class="card">
+        <h2>Why now</h2>
+        <p class="muted">
+          Freelancers keep getting asked to sign contracts they don't fully understand.
+          Most skip legal review because it's too expensive, too slow, or both.
+          ContractGhost is the middle ground: instant risk visibility before you commit.
+        </p>
+      </div>
+      <div class="card">
+        <h2>Early pricing</h2>
+        <div class="pricing">$19<span class="muted" style="font-size:18px; font-weight:600;">/month</span></div>
+        <p class="muted">Starter plan for freelancers who want quick pre-sign checks. Founding user pricing may include a lifetime option.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="card">
+        <h2>Example risk summary</h2>
+        <p class="muted">This is the kind of output ContractGhost is designed to produce before you sign.</p>
+        <div class="grid two" style="margin-top:16px;">
+          <div>
+            <h3>Freelance design agreement</h3>
+            <p class="muted"><strong>Overall risk:</strong> Medium-High</p>
+            <ul>
+              <li><strong>Unlimited revisions:</strong> vague scope can turn fixed-fee work into unpaid extra rounds</li>
+              <li><strong>IP transfer before payment:</strong> client gets ownership too early</li>
+              <li><strong>One-sided termination:</strong> weak protection if the project is cancelled mid-stream</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What you'd get back</h3>
+            <ul>
+              <li>Why each clause is risky in plain English</li>
+              <li>Which issues matter most right now</li>
+              <li>Safer wording to send back to the client</li>
+              <li>A quick steer on what to negotiate before signing</li>
+            </ul>
+            <p class="tiny">Example safer wording: “This project includes up to two rounds of revisions. Additional revisions or out-of-scope work will be billed at $X/hour.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="survey">
+    <div class="wrap">
+      <div class="card">
+        <h2>Answer 3 quick questions</h2>
+        <p class="muted">If you're a freelancer, this helps shape the MVP faster than a generic waitlist signup.</p>
+        <form class="form" id="survey-form">
+          <input type="text" name="role" placeholder="What kind of freelance work do you do?" aria-label="Role" />
+          <textarea rows="3" name="worst_clause" placeholder="What contract clause or client term has burned you hardest?" aria-label="Worst clause"></textarea>
+          <textarea rows="3" name="workaround" placeholder="How do you handle contracts today? (self-review, template, ChatGPT, lawyer, etc.)" aria-label="Current workaround"></textarea>
+          <input type="text" name="price_signal" placeholder="Would you pay $19-$29/month for a pre-sign contract risk check? Why or why not?" aria-label="Price signal" />
+          <button class="btn btn-primary" type="submit">Send anonymous feedback</button>
+        </form>
+        <div id="survey-success" class="success" role="status" aria-live="polite"></div>
+        <p class="tiny">Saved locally in validation mode so live demo sessions can still capture signal even before a full backend is wired.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="waitlist">
+    <div class="wrap">
+      <div class="card">
+        <h2>Join the waitlist</h2>
+        <p class="muted">Tell us what kind of contracts you deal with and we'll prioritize the riskiest clauses first.</p>
+        <form id="waitlist-form" class="form" action="mailto:contractghostbeta@proton.me?subject=ContractGhost%20Waitlist&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20" method="POST" enctype="text/plain">
+          <input type="hidden" name="product" value="ContractGhost" />
+          <input type="hidden" name="source" value="landing-page" />
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
+          <input type="text" name="freelance_work" placeholder="What kind of freelance work do you do?" aria-label="Freelance work" />
+          <textarea rows="4" name="pain_point" placeholder="What contract clause has burned you before?" aria-label="Pain point"></textarea>
+          <button class="btn btn-primary" type="submit">Join Waitlist</button>
+        </form>
+        <div id="success" class="success" role="status" aria-live="polite"></div>
+        <div class="helper-links">
+          <a class="btn btn-secondary" id="download-leads" href="#">Download captured leads (.json)</a>
+          <a class="btn btn-secondary" id="email-fallback" href="mailto:contractghostbeta@proton.me?subject=ContractGhost%20beta&body=Email%3A%20%0AFreelance%20work%3A%20%0AWhat%20contract%20clause%20burned%20you%3A%20">Email instead</a>
+        </div>
+        <p class="tiny">Join our waitlist to get early access. We'll email you when we're live.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="wrap">
+      <p><strong>⚠️ Important Disclaimer</strong></p>
+      <p>ContractGhost is NOT a law firm and does NOT provide legal advice. It is a pre-sign contract risk checker for informational purposes only. Always consult a qualified attorney for legal decisions.</p>
+      <p>Use it to spot issues before you sign, then decide what to negotiate, question, or escalate to a lawyer.</p>
+      <p>By using ContractGhost, you acknowledge that contract analysis is provided "as is" without warranties of any kind.</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const form = document.getElementById('waitlist-form');
+      const surveyForm = document.getElementById('survey-form');
+      const success = document.getElementById('success');
+      const surveySuccess = document.getElementById('survey-success');
+      const downloadLink = document.getElementById('download-leads');
+      const storageKey = 'contractghost_waitlist_submissions';
+      const surveyStorageKey = 'contractghost_validation_surveys';
+
+      function loadJsonArray(key) {
+        try {
+          return JSON.parse(localStorage.getItem(key) || '[]');
+        } catch (_) {
+          return [];
+        }
+      }
+
+      function loadLeads() {
+        return loadJsonArray(storageKey);
+      }
+
+      function saveLeads(leads) {
+        localStorage.setItem(storageKey, JSON.stringify(leads, null, 2));
+        updateDownloadLink(leads);
+      }
+
+      function saveSurveys(items) {
+        localStorage.setItem(surveyStorageKey, JSON.stringify(items, null, 2));
+      }
+
+      function updateDownloadLink(leads) {
+        const blob = new Blob([JSON.stringify(leads, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        downloadLink.href = url;
+        downloadLink.download = 'contractghost-waitlist-leads.json';
+        downloadLink.textContent = `Download captured leads (.json)${leads.length ? ` — ${leads.length} saved` : ''}`;
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        const lead = {
+          capturedAt: new Date().toISOString(),
+          product: data.get('product'),
+          source: data.get('source'),
+          email: String(data.get('email') || '').trim(),
+          freelance_work: String(data.get('freelance_work') || '').trim(),
+          pain_point: String(data.get('pain_point') || '').trim()
+        };
+
+        const leads = loadLeads();
+        leads.push(lead);
+        saveLeads(leads);
+
+        const remoteAction = form.getAttribute('data-formspree-action') || '';
+        const formspreeReady = remoteAction && !remoteAction.includes('PLACEHOLDER_FORM_ID');
+
+        if (formspreeReady) {
+          fetch(remoteAction, {
+            method: 'POST',
+            body: data,
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).catch(function () {
+            // Local capture is the primary safety net during validation.
+          });
+        }
+
+        form.reset();
+        success.style.display = 'block';
+        success.textContent = formspreeReady
+          ? 'Saved locally and sent to the live capture endpoint.'
+          : 'Saved locally in the browser for validation. Export the JSON after your outreach batch, or activate Formspree to send submissions to an inbox.';
+      });
+
+      if (surveyForm) {
+        surveyForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          const data = new FormData(surveyForm);
+          const items = loadJsonArray(surveyStorageKey);
+          items.push({
+            capturedAt: new Date().toISOString(),
+            role: String(data.get('role') || '').trim(),
+            worst_clause: String(data.get('worst_clause') || '').trim(),
+            workaround: String(data.get('workaround') || '').trim(),
+            price_signal: String(data.get('price_signal') || '').trim()
+          });
+          saveSurveys(items);
+          surveyForm.reset();
+          surveySuccess.style.display = 'block';
+          surveySuccess.textContent = 'Saved locally for validation review. This gives ContractGhost usable pain + pricing signal even before the full backend exists.';
+        });
+      }
+
+      updateDownloadLink(loadLeads());
+    })();
+  </script>
+</body>
+</html>
