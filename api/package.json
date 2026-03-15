@@ -1,0 +1,12 @@
+{
+  "name": "contractghost-api",
+  "version": "1.0.0",
+  "description": "ContractGhost API — AI contract risk analysis for freelancers",
+  "main": "analyze.js",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
