@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContractGhost Manual Demo Artifact</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #131a2e;
+      --panel-2: #18213a;
+      --text: #eef2ff;
+      --muted: #a7b0d6;
+      --accent: #7c5cff;
+      --accent-2: #2dd4bf;
+      --danger: #fb7185;
+      --warn: #fbbf24;
+      --ok: #34d399;
+      --border: rgba(255,255,255,0.09);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0f172a 100%);
+      color: var(--text);
+      padding: 32px;
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .title {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      min-height: 620px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    p {
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 14px;
+    }
+    ul {
+      padding-left: 18px;
+      color: var(--text);
+      margin: 14px 0 18px;
+    }
+    li { margin: 10px 0; }
+    .cta {
+      margin-top: 24px;
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .risk-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .risk {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.03);
+    }
+    .risk-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .sev-high { color: var(--danger); }
+    .sev-med { color: var(--warn); }
+    .summary {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(45,212,191,0.08);
+      border: 1px solid rgba(45,212,191,0.2);
+      color: #d7fff8;
+      font-weight: 600;
+    }
+    .clause {
+      margin: 14px 0;
+      padding: 14px;
+      border-left: 4px solid var(--danger);
+      background: rgba(255,255,255,0.03);
+      color: #fff4f6;
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+    }
+    .section-label {
+      color: #cbd5ff;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      margin: 18px 0 8px;
+    }
+    .rewrite {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(124,92,255,0.12);
+      border: 1px solid rgba(124,92,255,0.28);
+      color: #efe9ff;
+    }
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="title">ContractGhost — Screenshot Demo</h1>
+    <p class="subtitle">Manual validation artifact for outreach while public hosting is blocked.</p>
+
+    <div class="grid">
+      <section class="card">
+        <div class="eyebrow">Panel 1</div>
+        <h2>Check a freelance contract before you sign.</h2>
+        <p>ContractGhost flags risky terms around scope, payment, IP, revisions, termination, and liability — in plain English.</p>
+        <ul>
+          <li>Built for freelancers, not big legal teams</li>
+          <li>Explains what a clause actually means in practice</li>
+          <li>Suggests what to push back on before you get trapped</li>
+        </ul>
+        <div class="cta">Upload contract → Get risk summary</div>
+      </section>
+
+      <section class="card">
+        <div class="eyebrow">Panel 2</div>
+        <h2>This contract has 4 risk flags.</h2>
+        <div class="risk-list">
+          <div class="risk">
+            <div class="risk-head"><span>Scope</span><span class="sev-high">High</span></div>
+            <p>Unlimited revisions with no clear cap.</p>
+          </div>
+          <div class="risk">
+            <div class="risk-head"><span>Payment</span><span class="sev-high">High</span></div>
+            <p>Final payment depends on vague client approval language.</p>
+          </div>
+          <div class="risk">
+            <div class="risk-head"><span>IP</span><span class="sev-med">Medium</span></div>
+            <p>Ownership transfers before final invoice is paid.</p>
+          </div>
+          <div class="risk">
+            <div class="risk-head"><span>Termination</span><span class="sev-med">Medium</span></div>
+            <p>Client can exit quickly; freelancer obligations remain unclear.</p>
+          </div>
+          <div class="risk">
+            <div class="risk-head"><span>Liability</span><span class="sev-med">Medium</span></div>
+            <p>Broad indemnity wording creates open-ended exposure.</p>
+          </div>
+        </div>
+        <div class="summary">You probably want to fix scope, payment, and IP terms before signing this.</div>
+      </section>
+
+      <section class="card">
+        <div class="eyebrow">Panel 3</div>
+        <h2>Why this clause is risky</h2>
+        <div class="section-label">Example clause</div>
+        <div class="clause">“Contractor agrees to continue revisions until Client is satisfied.”</div>
+
+        <div class="section-label">Plain-English explanation</div>
+        <p>This can become endless unpaid revision work because there is no revision limit and no clear acceptance rule.</p>
+
+        <div class="section-label">Why it matters</div>
+        <p>A vague satisfaction clause lets the client keep requesting changes without triggering a new fee.</p>
+
+        <div class="section-label">Suggested pushback</div>
+        <p>Ask to limit revisions to 2 rounds and define approval within a fixed number of business days.</p>
+
+        <div class="section-label">Example rewrite</div>
+        <div class="rewrite">“Project fee includes up to 2 revision rounds. Additional revisions are billed separately. Work is deemed accepted if no consolidated revision request is received within 5 business days.”</div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
