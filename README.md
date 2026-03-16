@@ -6,6 +6,7 @@ Stop signing contracts you don't fully understand. ContractGhost reads your free
 
 🔗 **Live site:** [contractghost.com](https://orgdocai-code.github.io/contractghost/)  
 🔍 **Interactive demo:** [See a live analysis](https://orgdocai-code.github.io/contractghost/demo.html)  
+🧾 **Manual review path:** [Request a concierge review](https://orgdocai-code.github.io/contractghost/concierge-review.html)  
 📘 **How it works:** [Freelancer contract review explainer](https://orgdocai-code.github.io/contractghost/how-it-works.html)
 
 ---
@@ -127,11 +128,11 @@ The frontend is already configured for GitHub Pages deployment. Enable it in you
 
 ## Project Status
 
-🚀 **In development** — landing page live, interactive demo live, API backend built.
+🚀 **In development** — landing page live, interactive demo live, manual concierge review path live, API backend built.
 
-Currently in early access / waitlist phase. Building toward first paying customers.
+Currently in early access / validation phase. Building toward first paying customers.
 
-**Early access:** [Get notified](mailto:spazo@high-agency.com.au?subject=ContractGhost%20early%20access)
+**Early access / concierge review:** [Email ContractGhost](mailto:spazo@high-agency.com.au?subject=ContractGhost%20Concierge%20Review)
 
 ---
 
