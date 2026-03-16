@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContractGhost Pricing — Monthly or pay per review</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121934;
+      --text: #eef2ff;
+      --muted: #a8b0d3;
+      --line: #2a3566;
+      --accent: #7c9cff;
+      --accent-2: #9bffcf;
+      --warn: #ffd27a;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #121934 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .hero { padding: 72px 0 36px; }
+    .badge {
+      display: inline-block; padding: 6px 12px; border: 1px solid var(--line);
+      border-radius: 999px; color: var(--accent-2); background: rgba(155,255,207,0.08);
+      font-size: 14px; margin-bottom: 20px;
+    }
+    h1 { font-size: clamp(36px, 6vw, 62px); line-height: 1.04; margin: 0 0 14px; }
+    .sub { font-size: 20px; color: var(--muted); max-width: 760px; margin-bottom: 24px; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+    .btn {
+      text-decoration: none; border-radius: 12px; padding: 14px 18px; font-weight: 700;
+      display: inline-block; border: 1px solid var(--line);
+    }
+    .btn-primary { background: var(--accent); color: #08112d; border-color: transparent; }
+    .btn-secondary { background: rgba(255,255,255,0.03); }
+    .section { padding: 20px 0 34px; }
+    .grid { display: grid; gap: 18px; }
+    .two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .three { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+    .featured { border-color: rgba(124,156,255,0.5); background: rgba(124,156,255,0.08); }
+    .price { font-size: 44px; font-weight: 800; margin: 10px 0 4px; }
+    .muted { color: var(--muted); }
+    .tiny { color: var(--muted); font-size: 14px; }
+    h2 { font-size: 30px; margin: 0 0 12px; }
+    h3 { margin: 0 0 10px; font-size: 22px; }
+    ul { padding-left: 20px; }
+    .note {
+      border-left: 4px solid var(--warn);
+      background: rgba(255,210,122,0.08);
+    }
+    .footer { padding: 28px 0 56px; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="wrap">
+      <div class="badge">Pricing test — validation mode</div>
+      <h1>Use ContractGhost the way freelancers actually buy.</h1>
+      <p class="sub">
+        Some freelancers need contract help every week. Others only need it when a weird clause shows up.
+        So the pricing test is simple: one-off reviews for occasional pain, monthly plans for people who review contracts often.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:spazo@high-agency.com.au?subject=ContractGhost%20pricing%20feedback&body=Which%20option%20would%20you%20actually%20buy%3F%0A%0A-%20Pay%20per%20review%20(%2419)%0A-%20Starter%20(%2419%2Fmonth)%0A-%20Pro%20(%2429%2Fmonth)%0A%0AWhy%3A%20">Send pricing feedback</a>
+        <a class="btn btn-secondary" href="index.html">Back to homepage</a>
+        <a class="btn btn-secondary" href="sample-report.html">See sample report</a>
+      </div>
+      <p class="tiny">This page exists to test willingness to pay honestly before checkout infrastructure is live.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid two">
+      <div class="card">
+        <h3>Pay per review</h3>
+        <div class="price">$19<span class="muted" style="font-size:18px; font-weight:600;"> one-time</span></div>
+        <p class="muted">Best for freelancers who only want help when a contract feels sketchy.</p>
+        <ul>
+          <li>1 contract risk review</li>
+          <li>Plain-English issue summary</li>
+          <li>Safer rewrite suggestions</li>
+          <li>Negotiation points to send back</li>
+        </ul>
+        <a class="btn btn-secondary" href="mailto:spazo@high-agency.com.au?subject=I%20want%20pay-per-review&body=I%E2%80%99d%20buy%20the%20%2419%20one-off%20review%20because%3A%20">I’d buy this</a>
+      </div>
+
+      <div class="card featured">
+        <h3>Starter</h3>
+        <div class="price">$19<span class="muted" style="font-size:18px; font-weight:600;"> / month</span></div>
+        <p class="muted">For freelancers, consultants, and solo studios who review contracts regularly.</p>
+        <ul>
+          <li>Recurring pre-sign contract checks</li>
+          <li>Faster review workflow for repeat work</li>
+          <li>Best fit for retainers and ongoing projects</li>
+          <li>Early founding-user pricing test</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:spazo@high-agency.com.au?subject=I%20want%20the%20Starter%20plan&body=I%E2%80%99d%20buy%20the%20%2419%2Fmonth%20plan%20because%3A%20">I’d buy this</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid two">
+      <div class="card">
+        <h3>Pro</h3>
+        <div class="price">$29<span class="muted" style="font-size:18px; font-weight:600;"> / month</span></div>
+        <p class="muted">For heavier usage, agency-style workflows, or anyone who wants more frequent reviews.</p>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Better fit for teams or subcontract-heavy work</li>
+          <li>Useful if contracts show up often</li>
+          <li>Validation target, not final packaging</li>
+        </ul>
+        <a class="btn btn-secondary" href="mailto:spazo@high-agency.com.au?subject=I%20want%20the%20Pro%20plan&body=I%E2%80%99d%20buy%20the%20%2429%2Fmonth%20plan%20because%3A%20">I’d buy this</a>
+      </div>
+
+      <div class="card note">
+        <h3>What this pricing test is trying to learn</h3>
+        <ul>
+          <li>Do freelancers prefer a one-off rescue purchase or an ongoing subscription?</li>
+          <li>Does “monthly” create resistance for low-frequency contract review?</li>
+          <li>Does a pay-per-review option increase reply rate and buying intent?</li>
+        </ul>
+        <p class="muted">If repeated feedback says “I only need this occasionally,” pay-per-review should probably become the headline offer instead of a footnote.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="card">
+        <h2>Which option should lead?</h2>
+        <p class="muted">If you’re a freelancer and one of these feels obviously right or obviously wrong, that’s useful signal. Reply by email and say which one you’d actually pay for, plus what kind of contracts you deal with.</p>
+        <div class="grid three" style="margin-top:16px;">
+          <div class="card">
+            <h3>Occasional projects</h3>
+            <p class="muted">Probably pay-per-review. The pain is real, but not frequent enough for another subscription.</p>
+          </div>
+          <div class="card">
+            <h3>Retainers / ongoing clients</h3>
+            <p class="muted">Probably monthly. The workflow is repeated, so speed and consistency matter more.</p>
+          </div>
+          <div class="card">
+            <h3>Agencies / studios</h3>
+            <p class="muted">Probably Pro if multiple contracts, subcontractors, or revisions show up often.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="wrap">
+      <p><strong>Validation note:</strong> pricing is still being tested. The point of this page is to learn what buyers will actually choose, not pretend the packaging is final.</p>
+    </div>
+  </section>
+</body>
+</html>
