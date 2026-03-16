@@ -74,8 +74,10 @@
       <h3>Join the Waitlist</h3>
       <p>Be the first to know when we launch. Get early access + a free contract risk checklist.</p>
       
-      <form onsubmit="submitEmail(event)">
-        <input type="email" id="email" placeholder="your@email.com" required>
+      <form id="waitlist-form" action="https://formspree.io/f/xgonllpv" method="POST">
+        <input type="hidden" name="product" value="ContractGhost">
+        <input type="hidden" name="source" value="landing-page">
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
         <button type="submit" class="btn" id="submitBtn">Join Waitlist</button>
       </form>
       
@@ -112,40 +114,6 @@
     <p>Built for freelancers, by freelancers.</p>
   </div>
 
-  <script>
-    function submitEmail(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const btn = document.getElementById('submitBtn');
-      const success = document.getElementById('success');
-      const error = document.getElementById('error');
-      
-      if (!email) return;
-      
-      btn.disabled = true;
-      btn.textContent = 'Joining...';
-      error.classList.remove('show');
-      
-      // Store locally for now
-      const waitlist = JSON.parse(localStorage.getItem('contractghost_waitlist') || '[]');
-      
-      if (waitlist.includes(email)) {
-        error.textContent = 'This email is already on the list!';
-        error.classList.add('show');
-        btn.disabled = false;
-        btn.textContent = 'Join Waitlist';
-        return;
-      }
-      
-      waitlist.push(email);
-      localStorage.setItem('contractghost_waitlist', JSON.stringify(waitlist));
-      
-      // Log for now
-      console.log('New waitlist signup:', email);
-      
-      success.classList.add('show');
-      document.querySelector('form').style.display = 'none';
-    }
   </script>
 </body>
 </html>
